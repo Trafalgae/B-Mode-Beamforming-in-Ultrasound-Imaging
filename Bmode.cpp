@@ -47,7 +47,7 @@ int main()
     BmodeClass *scanlineHead = new BmodeClass(parameters, dataHead, 0);
     scanlineHead->next = NULL;
 
-    // ASSIGNMENT 4 PART 5 BEGIN: TO BE COMPLETED BY STUDENTS
+  
     // keep track of which object is the current scanline
     BmodeClass *currentScanline = scanlineHead;
     dataBuffer *currData = dataHead;
@@ -62,7 +62,7 @@ int main()
         currentScanline->next = NULL;
     }
 
-    // END OF ASSIGNMENT 4 PART 5
+
 
     cout << "Scanline Buffer Created" << endl;
 
