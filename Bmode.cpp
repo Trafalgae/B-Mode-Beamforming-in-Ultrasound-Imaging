@@ -8,12 +8,12 @@ using namespace std;
 
 int main()
 {
-    //// 1. Initialize imaging parameters
+    //Initialize imaging parameters
     int numFrames = 2;
     imageParam *parameters = new imageParam();
     cout << "Params Created" << endl;
 
-    //// 2. Import data into linked list
+    //Import data into linked list
     // Create ifstream objects to keep track of line position
     ifstream *imagFile = new ifstream;
     ifstream *realFile = new ifstream;
@@ -43,7 +43,7 @@ int main()
     delete realFile;
     cout << "Data Buffer Created" << endl;
 
-    //// 3. Beamform data into linked list
+    // Beamform data into linked list
     BmodeClass *scanlineHead = new BmodeClass(parameters, dataHead, 0);
     scanlineHead->next = NULL;
 
@@ -66,7 +66,7 @@ int main()
 
     cout << "Scanline Buffer Created" << endl;
 
-    //// 4. Aggregate all scanlines into bmode image
+    //Aggregate all scanlines into bmode image
     float **image2D = new float *[parameters->getNumScanline()]; // Create array of pointers
     currentScanline = scanlineHead;                              // Point current scanline to scanline node head
     for (int i = 0; i < parameters->getNumScanline(); i++)
@@ -78,7 +78,7 @@ int main()
 
     cout << "Scanlines Aggregated" << endl;
 
-    //// 5. Display Linked list
+    // Display Linked list
     ImageDisplay imaging;
     cout << "ImageDisplay Created" << endl;
 
@@ -92,7 +92,7 @@ int main()
     // Stop imaging and destroy imaging objects
     imaging.exit();
 
-    //// 6. Destroy all objects
+    // Destroy all objects
     // Destroy Images
     dataBuffer *nextData;
     currentData = dataHead;
